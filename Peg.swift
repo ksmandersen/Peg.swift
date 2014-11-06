@@ -64,7 +64,9 @@ public class Regex: Matchable {
     public func match(source: String, at start: Int = 0) -> Node? {
         let expr = NSRegularExpression(pattern: "^\(regex)")
         if let firstMatch = expr?.firstMatchInString(source, options: nil, range: NSMakeRange(start, source.length - start)) {
-            if firstMatch.range.location != NSNotFound {
+            
+            let range = firstMatch.range
+            if range.location != NSNotFound && range.length > 0 {
                 let matchedRange = start..<start+firstMatch.range.length
                 return Node(source, matchedRange)
             } else {
@@ -186,3 +188,32 @@ public class OneOrMore: Matchable {
 //        return 0..<Int.max
 //    }
 //}
+
+
+
+// Helpers
+
+private extension String {
+    subscript (r: Range<Int>) -> String {
+        get {
+            let startIndex = advance(self.startIndex, r.startIndex)
+            let endIndex = advance(startIndex, r.endIndex - r.startIndex)
+            return self[Range(start: startIndex, end: endIndex)]
+        }
+    }
+    
+    var length: Int {
+        return countElements(self)
+    }
+}
+
+extension NSRegularExpression {
+    convenience init?(pattern: String, caseInsensitive: Bool = false) {
+        var opts: NSRegularExpressionOptions = nil
+        if caseInsensitive {
+            opts = .CaseInsensitive
+        }
+        
+        self.init(pattern: pattern, options: opts, error: nil)
+    }
+}
