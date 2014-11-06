@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81CBA9E71A0A8A7000540759"
-               BuildableName = "PEG.framework"
-               BlueprintName = "PEG"
-               ReferencedContainer = "container:PEG.xcodeproj">
+               BuildableName = "Peg.framework"
+               BlueprintName = "Peg"
+               ReferencedContainer = "container:Peg.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81CBA9F21A0A8A7000540759"
-               BuildableName = "PEGTests.xctest"
-               BlueprintName = "PEGTests"
-               ReferencedContainer = "container:PEG.xcodeproj">
+               BuildableName = "PegTests.xctest"
+               BlueprintName = "PegTests"
+               ReferencedContainer = "container:Peg.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81CBA9F21A0A8A7000540759"
-               BuildableName = "PEGTests.xctest"
-               BlueprintName = "PEGTests"
-               ReferencedContainer = "container:PEG.xcodeproj">
+               BuildableName = "PegTests.xctest"
+               BlueprintName = "PegTests"
+               ReferencedContainer = "container:Peg.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81CBA9E71A0A8A7000540759"
-            BuildableName = "PEG.framework"
-            BlueprintName = "PEG"
-            ReferencedContainer = "container:PEG.xcodeproj">
+            BuildableName = "Peg.framework"
+            BlueprintName = "Peg"
+            ReferencedContainer = "container:Peg.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81CBA9E71A0A8A7000540759"
-            BuildableName = "PEG.framework"
-            BlueprintName = "PEG"
-            ReferencedContainer = "container:PEG.xcodeproj">
+            BuildableName = "Peg.framework"
+            BlueprintName = "Peg"
+            ReferencedContainer = "container:Peg.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81CBA9E71A0A8A7000540759"
-            BuildableName = "PEG.framework"
-            BlueprintName = "PEG"
-            ReferencedContainer = "container:PEG.xcodeproj">
+            BuildableName = "Peg.framework"
+            BlueprintName = "Peg"
+            ReferencedContainer = "container:Peg.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
