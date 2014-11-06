@@ -1,6 +1,6 @@
 # Peg.swift
 
-PEGPeg.swift is an implementation of [Parsing Expression Grammar](http://en.wikipedia.org/wiki/Parsing_expression_grammar) written in Swift. Peg.swift is a port of [peg.rb](https://github.com/keleshev/peg.rb) for Ruby by [Vladimir Keleshev](http://twitter.com/kelesehev/).
+Peg.swift is an implementation of [Parsing Expression Grammar](http://en.wikipedia.org/wiki/Parsing_expression_grammar) written in Swift. Peg.swift is a port of [peg.rb](https://github.com/keleshev/peg.rb) for Ruby by [Vladimir Keleshev](http://twitter.com/kelesehev/).
 
 ## How to Install Peg.swift
 
