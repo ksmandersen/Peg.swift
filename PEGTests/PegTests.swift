@@ -10,26 +10,6 @@ import XCTest
 
 import Peg
 
-//class EitherTests: XCTestCase {
-//    func testEitherMatchesEitherRegex() {
-//        let grammar = Either(Regex("a+"), Regex("b+"))
-//        let s = "aabb"
-//        eq(grammar.match(s), Node(s, 0..<2, children: [Node(s, 0..<2)]))
-//    }
-//    
-//    func testEitherMatchesSecondMatchable() {
-//        let grammar = Either(Regex("a+"), Regex("b+"))
-//        let s = "bbb..."
-//        eq(grammar.match(s), Node(s, 0..<3, children: [Node(s, 0..<3)]))
-//    }
-//    
-//    func testEitherDoesntMatchAny() {
-//        let grammar = Either(Regex("a+"), Regex("b+"))
-//        let s = "..."
-//        XCTAssertNil(grammar.match(s))
-//    }
-//}
-//
 //class NotTests: XCTestCase {
 //    func testNotDoesntMatchEmptyString() {
 //        let grammar = Not(Regex("."))
