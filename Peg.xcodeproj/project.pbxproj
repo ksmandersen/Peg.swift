@@ -14,6 +14,7 @@
 		81CBA9EE1A0A8A7000540759 /* PEG.h in Headers */ = {isa = PBXBuildFile; fileRef = 81CBA9ED1A0A8A7000540759 /* PEG.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81CBA9F41A0A8A7000540759 /* Peg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81CBA9E81A0A8A7000540759 /* Peg.framework */; };
 		81DBE2EB1A0BDBEB00C6F524 /* RegexSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2E91A0BDBAA00C6F524 /* RegexSpec.swift */; };
+		81DBE2EE1A0CBF2C00C6F524 /* NodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2EC1A0CBE1D00C6F524 /* NodeSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +88,6 @@
 		8183157D1A0BD51A009A5092 /* LiteralSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiteralSpec.swift; path = PegTests/LiteralSpec.swift; sourceTree = SOURCE_ROOT; };
 		81C3307A1A0B7D7000835576 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Vendor/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
 		81C330891A0B7D8500835576 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Vendor/Quick/Quick.xcodeproj; sourceTree = "<group>"; };
-		81C330A21A0B7F1200835576 /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestHelpers.swift; path = PEGTests/TestHelpers.swift; sourceTree = "<group>"; };
 		81CBA9E81A0A8A7000540759 /* Peg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Peg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81CBA9EC1A0A8A7000540759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81CBA9ED1A0A8A7000540759 /* PEG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEG.h; sourceTree = "<group>"; };
@@ -95,6 +95,7 @@
 		81CBA9F91A0A8A7000540759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81CBA9FA1A0A8A7000540759 /* PegTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PegTests.swift; path = PEGTests/PegTests.swift; sourceTree = "<group>"; };
 		81DBE2E91A0BDBAA00C6F524 /* RegexSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegexSpec.swift; path = PegTests/RegexSpec.swift; sourceTree = SOURCE_ROOT; };
+		81DBE2EC1A0CBE1D00C6F524 /* NodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NodeSpec.swift; path = PegTests/NodeSpec.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,9 +155,9 @@
 			children = (
 				81C330791A0B7D5400835576 /* Vendor */,
 				81CBA9EA1A0A8A7000540759 /* Peg */,
-				81CBA9F71A0A8A7000540759 /* PegTests */,
+				81CBA9F71A0A8A7000540759 /* Specs */,
+				81CBA9F81A0A8A7000540759 /* Test Support */,
 				81CBA9E91A0A8A7000540759 /* Products */,
-				81C330A21A0B7F1200835576 /* TestHelpers.swift */,
 				81CBA9FA1A0A8A7000540759 /* PegTests.swift */,
 			);
 			sourceTree = "<group>";
@@ -189,23 +190,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		81CBA9F71A0A8A7000540759 /* PegTests */ = {
+		81CBA9F71A0A8A7000540759 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
-				81CBA9F81A0A8A7000540759 /* Supporting Files */,
 				8183157D1A0BD51A009A5092 /* LiteralSpec.swift */,
 				81DBE2E91A0BDBAA00C6F524 /* RegexSpec.swift */,
+				81DBE2EC1A0CBE1D00C6F524 /* NodeSpec.swift */,
 			);
-			name = PegTests;
+			name = Specs;
 			path = PEGTests;
 			sourceTree = "<group>";
 		};
-		81CBA9F81A0A8A7000540759 /* Supporting Files */ = {
+		81CBA9F81A0A8A7000540759 /* Test Support */ = {
 			isa = PBXGroup;
 			children = (
 				81CBA9F91A0A8A7000540759 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			name = "Test Support";
+			path = PEGTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81DBE2EE1A0CBF2C00C6F524 /* NodeSpec.swift in Sources */,
 				81DBE2EB1A0BDBEB00C6F524 /* RegexSpec.swift in Sources */,
 				81AECBC21A0BD5F3009705FB /* LiteralSpec.swift in Sources */,
 			);

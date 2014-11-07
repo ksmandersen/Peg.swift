@@ -6,25 +6,10 @@
 //  Copyright (c) 2014 docopt. All rights reserved.
 //
 
-//import XCTest
-import Nimble
-import Quick
+import XCTest
 
 import Peg
 
-//class RegexTests: XCTestCase {
-//    func testRegexAtStart() {
-//        let source = "aaa..."
-//        eq(Regex("a*").match(source), Node(source, 0..<3))
-//        XCTAssertNil(Regex("b+").match(source))
-//    }
-//    
-//    func testRegexSuccessfulMatchNotFromBeginningOfString() {
-//        let source = "...aaa..."
-//        eq(Regex("a*").match(source, at: 3), Node(source, 3..<6))
-//    }
-//}
-//
 //class NodeTests: XCTestCase {
 //    func testNodeCanRepresentItsTextValue() {
 //        eq(Node("aaa").text, "aaa")
