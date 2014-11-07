@@ -17,6 +17,7 @@
 		81DBE2EE1A0CBF2C00C6F524 /* NodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2EC1A0CBE1D00C6F524 /* NodeSpec.swift */; };
 		81DBE2F11A0CD00B00C6F524 /* SequenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2EF1A0CCFE800C6F524 /* SequenceSpec.swift */; };
 		81DBE2F31A0CD91800C6F524 /* EitherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2F21A0CD91800C6F524 /* EitherSpec.swift */; };
+		81DBE2F51A0CDAC200C6F524 /* NotSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2F41A0CDAC200C6F524 /* NotSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		81DBE2EC1A0CBE1D00C6F524 /* NodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NodeSpec.swift; path = PegTests/NodeSpec.swift; sourceTree = SOURCE_ROOT; };
 		81DBE2EF1A0CCFE800C6F524 /* SequenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SequenceSpec.swift; path = PegTests/SequenceSpec.swift; sourceTree = SOURCE_ROOT; };
 		81DBE2F21A0CD91800C6F524 /* EitherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EitherSpec.swift; path = PegTests/EitherSpec.swift; sourceTree = SOURCE_ROOT; };
+		81DBE2F41A0CDAC200C6F524 /* NotSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotSpec.swift; path = PegTests/NotSpec.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				81DBE2EC1A0CBE1D00C6F524 /* NodeSpec.swift */,
 				81DBE2EF1A0CCFE800C6F524 /* SequenceSpec.swift */,
 				81DBE2F21A0CD91800C6F524 /* EitherSpec.swift */,
+				81DBE2F41A0CDAC200C6F524 /* NotSpec.swift */,
 			);
 			name = Specs;
 			path = PEGTests;
@@ -404,6 +407,7 @@
 				81DBE2EE1A0CBF2C00C6F524 /* NodeSpec.swift in Sources */,
 				81DBE2F31A0CD91800C6F524 /* EitherSpec.swift in Sources */,
 				81DBE2EB1A0BDBEB00C6F524 /* RegexSpec.swift in Sources */,
+				81DBE2F51A0CDAC200C6F524 /* NotSpec.swift in Sources */,
 				81AECBC21A0BD5F3009705FB /* LiteralSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
