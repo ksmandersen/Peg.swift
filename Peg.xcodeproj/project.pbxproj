@@ -18,6 +18,8 @@
 		81DBE2F11A0CD00B00C6F524 /* SequenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2EF1A0CCFE800C6F524 /* SequenceSpec.swift */; };
 		81DBE2F31A0CD91800C6F524 /* EitherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2F21A0CD91800C6F524 /* EitherSpec.swift */; };
 		81DBE2F51A0CDAC200C6F524 /* NotSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2F41A0CDAC200C6F524 /* NotSpec.swift */; };
+		81DBE2F71A0CDC1D00C6F524 /* LookaheadSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2F61A0CDC1D00C6F524 /* LookaheadSpec.swift */; };
+		81DBE2F91A0CDEA800C6F524 /* OneOrMoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE2F81A0CDEA800C6F524 /* OneOrMoreSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,12 +98,13 @@
 		81CBA9ED1A0A8A7000540759 /* PEG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEG.h; sourceTree = "<group>"; };
 		81CBA9F31A0A8A7000540759 /* PegTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PegTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81CBA9F91A0A8A7000540759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81CBA9FA1A0A8A7000540759 /* PegTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PegTests.swift; path = PEGTests/PegTests.swift; sourceTree = "<group>"; };
 		81DBE2E91A0BDBAA00C6F524 /* RegexSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegexSpec.swift; path = PegTests/RegexSpec.swift; sourceTree = SOURCE_ROOT; };
 		81DBE2EC1A0CBE1D00C6F524 /* NodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NodeSpec.swift; path = PegTests/NodeSpec.swift; sourceTree = SOURCE_ROOT; };
 		81DBE2EF1A0CCFE800C6F524 /* SequenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SequenceSpec.swift; path = PegTests/SequenceSpec.swift; sourceTree = SOURCE_ROOT; };
 		81DBE2F21A0CD91800C6F524 /* EitherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EitherSpec.swift; path = PegTests/EitherSpec.swift; sourceTree = SOURCE_ROOT; };
 		81DBE2F41A0CDAC200C6F524 /* NotSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotSpec.swift; path = PegTests/NotSpec.swift; sourceTree = SOURCE_ROOT; };
+		81DBE2F61A0CDC1D00C6F524 /* LookaheadSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LookaheadSpec.swift; path = PegTests/LookaheadSpec.swift; sourceTree = SOURCE_ROOT; };
+		81DBE2F81A0CDEA800C6F524 /* OneOrMoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OneOrMoreSpec.swift; path = PegTests/OneOrMoreSpec.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +167,6 @@
 				81CBA9F71A0A8A7000540759 /* Specs */,
 				81CBA9F81A0A8A7000540759 /* Test Support */,
 				81CBA9E91A0A8A7000540759 /* Products */,
-				81CBA9FA1A0A8A7000540759 /* PegTests.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,6 +207,8 @@
 				81DBE2EF1A0CCFE800C6F524 /* SequenceSpec.swift */,
 				81DBE2F21A0CD91800C6F524 /* EitherSpec.swift */,
 				81DBE2F41A0CDAC200C6F524 /* NotSpec.swift */,
+				81DBE2F61A0CDC1D00C6F524 /* LookaheadSpec.swift */,
+				81DBE2F81A0CDEA800C6F524 /* OneOrMoreSpec.swift */,
 			);
 			name = Specs;
 			path = PEGTests;
@@ -406,9 +410,11 @@
 				81DBE2F11A0CD00B00C6F524 /* SequenceSpec.swift in Sources */,
 				81DBE2EE1A0CBF2C00C6F524 /* NodeSpec.swift in Sources */,
 				81DBE2F31A0CD91800C6F524 /* EitherSpec.swift in Sources */,
+				81DBE2F71A0CDC1D00C6F524 /* LookaheadSpec.swift in Sources */,
 				81DBE2EB1A0BDBEB00C6F524 /* RegexSpec.swift in Sources */,
 				81DBE2F51A0CDAC200C6F524 /* NotSpec.swift in Sources */,
 				81AECBC21A0BD5F3009705FB /* LiteralSpec.swift in Sources */,
+				81DBE2F91A0CDEA800C6F524 /* OneOrMoreSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
