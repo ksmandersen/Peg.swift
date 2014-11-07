@@ -10,22 +10,6 @@ import XCTest
 
 import Peg
 
-//class NodeTests: XCTestCase {
-//    func testNodeCanRepresentItsTextValue() {
-//        eq(Node("aaa").text, "aaa")
-//        eq(Node("...aaaa...", 3..<6).text, "aaa")
-//    }
-//}
-//
-//class SequenceTests: XCTestCase {
-//    func testSequenceMatchesLiteralAndRegex() {
-//        let grammar = Sequence(Regex("a*"), Literal("bbb"))
-//        let s = "aaabbb..."
-//        let match: Node = Node(s, 0..<6, children: [Node(s, 0..<3), Node(s, 3..<6)])
-//        eq(grammar.match(s), match)
-//    }
-//}
-//
 //class EitherTests: XCTestCase {
 //    func testEitherMatchesEitherRegex() {
 //        let grammar = Either(Regex("a+"), Regex("b+"))
