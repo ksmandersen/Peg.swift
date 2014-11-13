@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8114100B1A14FDF9000A7B44 /* ZeroOrMoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811410011A14FDEB000A7B44 /* ZeroOrMoreSpec.swift */; };
+		8114100D1A1503BE000A7B44 /* OptionalSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114100C1A1503BE000A7B44 /* OptionalSpec.swift */; };
+		8114100F1A1506B1000A7B44 /* ReferenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114100E1A1506B1000A7B44 /* ReferenceSpec.swift */; };
+		811410111A150AF0000A7B44 /* IntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811410101A150AF0000A7B44 /* IntegrationSpec.swift */; };
+		811410151A152EA8000A7B44 /* GrammarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811410141A152EA8000A7B44 /* GrammarSpec.swift */; };
+		811410161A1533A7000A7B44 /* Peg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813311441A0BD0E300D50D9B /* Peg.swift */; };
 		813311451A0BD0E300D50D9B /* Peg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813311441A0BD0E300D50D9B /* Peg.swift */; };
 		81AECBC01A0BD5CB009705FB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C330821A0B7D7000835576 /* Nimble.framework */; };
 		81AECBC11A0BD5D2009705FB /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C330921A0B7D8500835576 /* Quick.framework */; };
@@ -89,6 +95,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		811410011A14FDEB000A7B44 /* ZeroOrMoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZeroOrMoreSpec.swift; path = PegTests/ZeroOrMoreSpec.swift; sourceTree = SOURCE_ROOT; };
+		8114100C1A1503BE000A7B44 /* OptionalSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionalSpec.swift; path = PegTests/OptionalSpec.swift; sourceTree = SOURCE_ROOT; };
+		8114100E1A1506B1000A7B44 /* ReferenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferenceSpec.swift; path = PegTests/ReferenceSpec.swift; sourceTree = SOURCE_ROOT; };
+		811410101A150AF0000A7B44 /* IntegrationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegrationSpec.swift; path = PegTests/IntegrationSpec.swift; sourceTree = SOURCE_ROOT; };
+		811410141A152EA8000A7B44 /* GrammarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GrammarSpec.swift; path = PegTests/GrammarSpec.swift; sourceTree = SOURCE_ROOT; };
 		813311441A0BD0E300D50D9B /* Peg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peg.swift; sourceTree = SOURCE_ROOT; };
 		8183157D1A0BD51A009A5092 /* LiteralSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiteralSpec.swift; path = PegTests/LiteralSpec.swift; sourceTree = SOURCE_ROOT; };
 		81C3307A1A0B7D7000835576 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Vendor/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
@@ -209,6 +220,11 @@
 				81DBE2F41A0CDAC200C6F524 /* NotSpec.swift */,
 				81DBE2F61A0CDC1D00C6F524 /* LookaheadSpec.swift */,
 				81DBE2F81A0CDEA800C6F524 /* OneOrMoreSpec.swift */,
+				811410011A14FDEB000A7B44 /* ZeroOrMoreSpec.swift */,
+				8114100C1A1503BE000A7B44 /* OptionalSpec.swift */,
+				8114100E1A1506B1000A7B44 /* ReferenceSpec.swift */,
+				811410101A150AF0000A7B44 /* IntegrationSpec.swift */,
+				811410141A152EA8000A7B44 /* GrammarSpec.swift */,
 			);
 			name = Specs;
 			path = PEGTests;
@@ -407,12 +423,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				811410161A1533A7000A7B44 /* Peg.swift in Sources */,
+				8114100B1A14FDF9000A7B44 /* ZeroOrMoreSpec.swift in Sources */,
 				81DBE2F11A0CD00B00C6F524 /* SequenceSpec.swift in Sources */,
+				8114100D1A1503BE000A7B44 /* OptionalSpec.swift in Sources */,
+				811410111A150AF0000A7B44 /* IntegrationSpec.swift in Sources */,
 				81DBE2EE1A0CBF2C00C6F524 /* NodeSpec.swift in Sources */,
+				8114100F1A1506B1000A7B44 /* ReferenceSpec.swift in Sources */,
 				81DBE2F31A0CD91800C6F524 /* EitherSpec.swift in Sources */,
 				81DBE2F71A0CDC1D00C6F524 /* LookaheadSpec.swift in Sources */,
 				81DBE2EB1A0BDBEB00C6F524 /* RegexSpec.swift in Sources */,
 				81DBE2F51A0CDAC200C6F524 /* NotSpec.swift in Sources */,
+				811410151A152EA8000A7B44 /* GrammarSpec.swift in Sources */,
 				81AECBC21A0BD5F3009705FB /* LiteralSpec.swift in Sources */,
 				81DBE2F91A0CDEA800C6F524 /* OneOrMoreSpec.swift in Sources */,
 			);

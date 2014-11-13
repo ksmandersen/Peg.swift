@@ -1,21 +1,23 @@
 import Foundation
 
-public protocol Matchable {
+protocol Matchable {
     func match(source: String, at start: Int) -> Node?
 }
 
-public class Node: Equatable, Printable {
-    public let source: String
-    public let range: Range<Int>
-    public let children: [Node]
+class Node: Equatable, Printable {
+    let name: String?
+    let source: String
+    let range: Range<Int>
+    let children: [Node]
     
-    public init(_ source: String, _ range: Range<Int>? = nil, children: [Node] = []) {
+    init(_ source: String, _ range: Range<Int>? = nil, children: [Node] = [], name: String? = nil) {
         self.source = source
         self.range = (range != nil) ? range! : 0..<source.length
         self.children = children
+        self.name = name
     }
     
-    public convenience init(fromChildren nodes: [Node]) {
+    convenience init(fromChildren nodes: [Node]) {
         assert(countElements(nodes) > 0)
         let startIndex = nodes.first!.range.startIndex
         let endIndex = nodes.last!.range.endIndex
@@ -24,27 +26,30 @@ public class Node: Equatable, Printable {
         self.init(nodes.first!.source, range, children: nodes)
     }
     
-    public var text: String {
+    var text: String {
         return source[range]
     }
     
-    public var description: String {
-        return "Node(\(source), \(range), children: \(children))"
+    var description: String {
+        return "Node(\(source), \(range), name: \(name), children: \(children))"
     }
 }
 
-public func ==(lhs: Node, rhs: Node) -> Bool {
-    return lhs.source == rhs.source && lhs.range == rhs.range && lhs.children == rhs.children
+func ==(lhs: Node, rhs: Node) -> Bool {
+    return lhs.source == rhs.source &&
+    lhs.range == rhs.range &&
+    lhs.children == rhs.children &&
+    lhs.name == rhs.name
 }
 
-public class Literal: Matchable {
-    public let literal: String
+class Literal: Matchable {
+    let literal: String
     
-    public init(_ literal: String) {
+    init(_ literal: String) {
         self.literal = literal
     }
     
-    public func match(source: String, at start: Int = 0) -> Node? {
+    func match(source: String, at start: Int = 0) -> Node? {
         let range = start..<source.length
         if source[range].hasPrefix(literal) {
             return Node(source, start..<start+literal.length)
@@ -54,14 +59,14 @@ public class Literal: Matchable {
     }
 }
 
-public class Regex: Matchable {
-    public let regex: String
+class Regex: Matchable {
+    let regex: String
     
-    public init(_ regex: String) {
+    init(_ regex: String) {
         self.regex = regex
     }
     
-    public func match(source: String, at start: Int = 0) -> Node? {
+    func match(source: String, at start: Int = 0) -> Node? {
         let expr = NSRegularExpression(pattern: "^\(regex)")
         if let firstMatch = expr?.firstMatchInString(source, options: nil, range: NSMakeRange(start, source.length - start)) {
             
@@ -79,14 +84,14 @@ public class Regex: Matchable {
     }
 }
 
-public class Sequence: Matchable {
-    public let matchables: [Matchable]
+class Sequence: Matchable {
+    let matchables: [Matchable]
     
-    public init(_ matchables: Matchable...) {
+    init(_ matchables: Matchable...) {
         self.matchables = matchables
     }
     
-    public func match(source: String, at start: Int = 0) -> Node? {
+    func match(source: String, at start: Int = 0) -> Node? {
         var i = start
         var nodes = [Node]()
         for matchable in matchables {
@@ -102,14 +107,14 @@ public class Sequence: Matchable {
     }
 }
 
-public class Either: Matchable {
-    public let matchables: [Matchable]
+class Either: Matchable {
+    let matchables: [Matchable]
     
-    public init(_ matchables: Matchable...) {
+    init(_ matchables: Matchable...) {
         self.matchables = matchables
     }
     
-    public func match(source: String, at start: Int = 0) -> Node? {
+    func match(source: String, at start: Int = 0) -> Node? {
         for matchable in matchables {
             if let node = matchable.match(source, at: start) {
                 return Node(source, node.range, children: [node])
@@ -120,61 +125,64 @@ public class Either: Matchable {
     }
 }
 
-public class Not: Matchable {
-    public let matchable: Matchable
+class Not: Matchable {
+    let matchable: Matchable
     
-    public init(_ matchable: Matchable) {
+    init(_ matchable: Matchable) {
         self.matchable = matchable
     }
     
-    public func match(source: String, at start: Int = 0) -> Node? {
+    func match(source: String, at start: Int = 0) -> Node? {
         return matchable.match(source, at: start) != nil ? nil : Node(source, start..<start)
     }
 }
 
-public class Lookahead: Matchable {
-    public let matchable: Matchable
+class Lookahead: Matchable {
+    let matchable: Matchable
     
-    public init(_ matchable: Matchable) {
+    init(_ matchable: Matchable) {
         self.matchable = matchable
     }
     
-    public func match(source: String, at start: Int = 0) -> Node? {
+    func match(source: String, at start: Int = 0) -> Node? {
         return Not(Not(matchable)).match(source, at: start)
     }
 }
 
-public class OneOrMore: Matchable {
-    public var range: Range<Int>  {
+class OneOrMore: Matchable {
+    var range: Range<Int>  {
         return 1..<Int.max
     }
     
-    public let matchable: Matchable
+    let matchable: Matchable
     
-    public init(_ matchable: Matchable) {
+    init(_ matchable: Matchable) {
         self.matchable = matchable
     }
     
-    public func match(source: String, at start: Int = 0) -> Node? {
+    func match(source: String, at start: Int = 0) -> Node? {
         var i = start
         var nodes = [Node]()
         while true {
             if let node = matchable.match(source, at: i) {
                 nodes.append(node)
                 i = node.range.endIndex
-                println(i)
             } else {
                 break
             }
             
-            if countElements(nodes) >= range.endIndex {
+            if countElements(nodes) == range.endIndex - 1 {
                 break
             }
         }
         
         let nodeCount = countElements(nodes)
-        let inRange = nodeCount >= range.startIndex && nodeCount <= range.endIndex
+        let inRange = nodeCount >= range.startIndex && nodeCount < range.endIndex
         if inRange {
+            if nodeCount == 0 {
+                return Node(source, start..<start)
+            }
+            
             return Node(fromChildren: nodes)
         }
         
@@ -183,13 +191,162 @@ public class OneOrMore: Matchable {
 }
 
 
-//public class ZeroOrMore: OneOrMore {
-//    public override var range: Range<Int> {
-//        return 0..<Int.max
+class ZeroOrMore: OneOrMore {
+    override var range: Range<Int> {
+        return 0..<Int.max
+    }
+}
+
+class Optional: OneOrMore {
+    override var range: Range<Int> {
+        return 0..<2
+    }
+}
+
+class Reference: Matchable {
+    let name: String
+    let mappings: BoxedDictionary<String, Matchable>
+    
+    var matchable: Matchable {
+        return mappings[name]!
+    }
+    
+    init(_ name: String, _ mappings: BoxedDictionary<String, Matchable>) {
+        self.name = name
+        self.mappings = mappings
+    }
+    
+    func match(source: String, at start: Int = 0) -> Node? {
+        if let node = matchable.match(source, at: start) {
+            return Node(source, node.range, children: [node], name: name)
+        }
+        
+        return nil
+    }
+}
+
+
+typealias Action = (Node, [Matchable]) -> [Matchable]
+typealias ActionCollection = BoxedDictionary<String, Action>
+typealias RuleCollection = BoxedDictionary<String, Matchable>
+
+
+//[String: Matchable]
+
+public class PEGGrammar {
+    var rules = RuleCollection()
+    var actions = ActionCollection()
+    
+    public init() {
+        makeGrammar()
+    }
+    
+//    func eval(name: String, source: String) -> Matchable? {
+//        if let node = ref(name).match(source) {
+//            
+//        }
+//        
+//        return nil
 //    }
-//}
+    
+    func eval(node: Node) -> Matchable {
+        if let action = actions[node.name!] {
+            return action(node, node.children.map(eval))
+        } else {
+            return { node, matchables in
+                
+            }(node, node.children.map(eval))
+        }
+    }
+    
+    private func makeGrammar() {
+//      dot <- '.' spacing
+        rule("dot", Sequence(".", ref("spacing"))) { _, _ in
+            return Regex(".")
+        }
+        
+//      and <- "&" spacing
+        rule("and", Sequence("&", ref("space")))
+        
+//      not        <- "!" spacing
+        rule("not", Sequence("!", ref("space")))
+        
+//      slash      <- "/" spacing
+        rule("slash", Sequence("/", ref("space")))
+        
+//      left_arrow <- "<-" spacing
+        rule("left_arrow", Sequence("<-", ref("space")))
+        
+//      question   <- "?" spacing
+        rule("question", Sequence("?", ref("space")))
+        
+//      star       <- "*" spacing
+        rule("star", Sequence("*", ref("space")))
+        
+//      plus       <- "+" spacing
+        rule("plus", Sequence("+", ref("space")))
+        
+//      open       <- "(" spacing
+        rule("open", Sequence("(", ref("space")))
+        
+//      close      <- ")" spacing
+        rule("close", Sequence(")", ref("space")))
+        
+//      spacing <- (space / comment)*
+        rule("spacing", ZeroOrMore(Either(ref("space"), ref("comment"))))
+        
+//      comment <- '#' (!end_of_line .)* end_of_line
+//      TODO: WTF? comment doesn't match implementation
+        rule("comment", Sequence("#",
+                                 ZeroOrMore(Sequence(Not(ref("end_of_line")),
+                                                     Regex(".")))))
+        
+//      space <- " " / "\t" / end_of_line
+        rule("space", Either(" ", "\t", ref("end_of_line")))
+        
+//      end_of_line <- "\r\n" / "\n" / "\r"
+        rule("end_of_line", Either("\r\n", "\n", "\r"))
+    }
+    
+    private func ref(name: String) -> Reference {
+        return Reference(name, rules)
+    }
+    
+    private func rule(name: String, _ matchable: Matchable, _ action: Action? = nil) {
+        rules[name] = matchable
+        if let action = action {
+            actions[name] = action
+        }
+    }
+}
+
+ extension String: Matchable {
+    func match(source: String, at start: Int) -> Node? {
+        return Literal(self).match(source, at: start)
+    }
+}
 
 
+public class BoxedDictionary<K: Hashable, V>: Printable {
+    var dict: [K: V]
+    
+    public init(){
+        dict = [K: V]()
+    }
+    
+    public init(dictionary: [K: V]) {
+        dict = dictionary
+    }
+    
+    public subscript (key: K) -> V? {
+        get { return dict[key] }
+        set(newValue) { dict[key] = newValue }
+    }
+    
+    public var description: String {
+        return dict.description
+    }
+}
 
 // Helpers
 
